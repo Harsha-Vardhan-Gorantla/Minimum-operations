@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define pb push_back
+#define mp make_pair
+#define all(x) (x).begin(),(x).end()
+#define f(i,start,end) for(ll i=start;i<ll(end);i++)
+typedef long long int ll;
+int main()
+{
+     ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	ll n;
+	cin>>n;
+	vector<ll> vec;
+	set<int> st;
+	for(int i=0;i<n;i++)
+	{
+	    int k;
+    	cin>>k;
+	    vec.push_back(k);
+    	st.insert(k);
+    }
+    int sum=0;
+    for(auto i=st.begin();i!=st.end();i++)
+    {
+    	int p;
+    	int pre,count=0;
+    	pre=-2;
+    	p = *i;
+    	for(int i=0;i<vec.size();i++)
+    	{
+        	if(vec[i] == p)
+        	{
+            	if(i != (pre+1))
+            	count++;
+        		pre = i;
+        	}
+    	}
+    	sum=sum+count;
+	}
+    cout<<sum;
+}
